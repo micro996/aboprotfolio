@@ -1,0 +1,573 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front End Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+    
+    
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Common Animation Properties */
+.animate {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate.show {
+    opacity: 1;
+}
+
+/* Fade-in Effect */
+.fade-in {
+    transform: translateY(20px);
+}
+.fade-in.show {
+    transform: translateY(0);
+}
+
+/* Slide-in Effects */
+.slide-in-left {
+    transform: translateX(-100px);
+}
+.slide-in-left.show {
+    transform: translateX(0);
+}
+.slide-in-right {
+    transform: translateX(100px);
+}
+.slide-in-right.show {
+    transform: translateX(0);
+}
+
+/* Zoom-in Effect */
+.zoom-in {
+    transform: scale(0.8);
+}
+.zoom-in.show {
+    transform: scale(1);
+}
+
+/* Rotate-in Effect */
+.rotate-in {
+    transform: rotate(-10deg);
+}
+.rotate-in.show {
+    transform: rotate(0deg);
+}
+
+/* Flip-in Effect */
+.flip-in {
+    transform: rotateY(90deg);
+}
+.flip-in.show {
+    transform: rotateY(0deg);
+}
+
+/* Bounce-in Effect */
+.bounce-in {
+    transform: translateY(30px);
+}
+.bounce-in.show {
+    animation: bounce 0.6s ease-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(30px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Sections Styling */
+section {
+    padding: 50px;
+    text-align: left;
+    max-width: 1200px; /* Center content with better width */
+    margin: 0 auto;
+}
+
+/* Skills Bar */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.skill-bar {
+    width: 80%;
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+.skill-bar span {
+    display: block;
+    height: 20px;
+    background-color: #ff4d4d;
+    text-align: right;
+    padding-right: 10px;
+    color: white;
+    line-height: 20px;
+    font-size: 14px;
+}
+.skill-html { width: 90%; }
+.skill-css { width: 85%; }
+.skill-js { width: 80%; }
+.skill-react { width: 70%; }
+
+/* Blog & Testimonials */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease-in-out;
+    text-align: left;
+}
+.card:hover {
+    transform: scale(1.05);
+}
+.cards-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 50px;
+    text-align:center;
+}
+.dot-container {
+    display: flex;
+    justify-content: center ;
+    gap: 10px;
+    margin-top: 10px;
+}
+.dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+.dot-filled {
+    background-color: red;
+}
+.dot-outlined {
+    border: 2px solid red;
+}
+
+/* Sections Styling */
+section h2 {
+    text-align: left;
+}
+
+/* Align Cards/Grids to the Left */
+.cards-container, .grid {
+    justify-content: flex-start;
+}
+
+
+</style>
+
+    <script>
+        function showResume() {
+            document.getElementById('resumeModal').style.display = 'block';
+        }
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-gray-300">
+    <header class="bg-gray-800 py-4">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="text-white text-2xl font-bold">PORTFOLIO</div>
+            <nav>
+                <ul class="flex space-x-6 text-gray-400">
+                    <li><a href="#" class="hover:text-white" onclick="scrollToSection('Home')">Home</a></li>
+                    <li><a href="#" class="hover:text-white" onclick="scrollToSection('About')">About</a></li>
+                    <li><a href="#" class="hover:text-white" onclick="scrollToSection('Services')">Services</a></li>
+                    <li><a href="#" class="hover:text-white" onclick="scrollToSection('Skills')">Skills</a></li>
+                    <li><a class="hover:text-red-500" href="#Projects">Projects</a></li>
+                    <li><a class="hover:text-red-500" href="#Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container mx-auto px-4 py-16">
+        <section id="Home" class="text-center fade-in">
+        <img alt="Profile image of the developer" class="mx-auto rounded-full mb-6" height="150" src="my photo.png" width="150"/>
+        <h1 class="text-5xl font-bold">
+            <h1 class="text-5xl font-bold mb-4">Hello, I'm<br>a Front end Developer</h1>
+            <p class="text-gray-400 mb-8">Fond of creating web application designs and bring them to life using code & develop mobile designs.</p>
+            <button id="resumeButton" class="bg-red-500 text-white py-2 px-6 rounded-full hover-animate">My Resume</button>
+        </section>
+                
+        <section id="resume" class="mt-16 fade-in hidden">
+            <h2 class="text-3xl font-bold mb-4">My Resume</h2>
+            <div class="bg-gray-800 p-6 rounded-lg">
+                <h3 class="text-2xl font-bold mb-2">Thinglom Abo</h3>
+                <p class="text-gray-400 mb-4">Front End Developer creating responsive and user-friendly web applications.</p>
+                <h4 class="text-xl font-bold mb-2">Soft Skills</h4>
+                <ul class="list-disc list-inside text-gray-400 mb-4">
+                    <li> Good Communication Skills </li>
+                    <li> Quick Learner and Adaptable </li>
+                    <li>  Problem-Solving Skills</li>
+                    <li> Patience and Willingness  </li>
+                </ul>
+                <h4 class="text-xl font-bold mb-2">Education</h4>
+                <ul class="list-disc list-inside text-gray-400 mb-4">
+                Bachelor of Computer Applications (BCA)<br>
+                        Arunachal University of Studies (AUS)<br>
+                        Namsai 792103
+                        </li>
+                </ul>
+                <h4 class="text-xl font-bold mb-2">Skills</h4>
+                <ul class="list-disc list-inside text-gray-400">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Git, GitHub</li>
+                    <li>Responsive Design</li>
+                </ul>
+                <h2 class="text-lg font-semibold">Download My Resume</h2>
+                <a href="resume.pdf" download="My_Resume.pdf">
+                    <button class="bg-red-500 text-white py-2 px-6 rounded-full mt-4 transform transition duration-300 hover:scale-105">
+                        Download Resume
+                    </button>
+                </a>
+                
+        </section>
+        
+        <section id="About" class="mt-24">
+            <h2 class="text-3xl font-bold text-red-500 fade-in animate">About</h2>
+            <p class="text-gray-500 mt-4 ">
+<p class="animate slide-in-left">Hello! I'm a passionate Front-End Developer dedicated to crafting beautiful, functional, and user-friendly web experiences. With a strong foundation in HTML, CSS, and JavaScript, I specialize in building responsive and interactive websites that not only look great but also provide seamless usability across all devices.
+
+I have experience working with modern front-end frameworks like React.js, enabling me to develop dynamic web applications with smooth functionality. My expertise extends to UI/UX design, ensuring that every project I work on prioritizes user engagement, accessibility, and intuitive navigation.
+I am also learning the fundamentals of backend development, including how servers and databases work. I have a basic understanding of Node.js and Express.js, which help in handling server-side logic, and I am exploring MongoDB for data storage. While I am still at the beginner level, I am eager to expand my knowledge and build full-stack applications in the future.<br>
+I have experience using Git and GitHub for version control, allowing me to track changes and collaborate on coding projects. Additionally, I am learning how to deploy websites using platforms like Netlify and Vercel.
+My knowledge includes HTML, CSS, and JavaScript, which a content, styling, and interactivity. I am familiar with designing simple layouts, working with forms, and ensuring responsiveness for different screen sizes.           </p>
+        </section>
+
+        <section id="Services" class="mt-24">
+            <h2 class="text-3xl font-bold text-red-500 fade-in animate">Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg slide-in-left animate">
+                <i class="fas fa-code-branch text-red-500 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-white">Git Version Control</h4>
+                    <p class="text-gray-500 mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg slide-in-left animate">
+                    <i class="fas fa-mobile-alt text-red-500 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-white">App Design</h4>
+                    <p class="text-gray-500 mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg slide-in-left animate">
+                    <i class="fas fa-server text-red-500 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-white">Back-end Development</h4>
+                    <p class="text-gray-500 mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg slide-in-left animate">
+                    <i class="fas fa-globe text-red-500 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-white">Web Development</h4>
+                    <p class="text-gray-500 mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg slide-in-left animate">
+                    <i class="fas fa-camera text-red-500 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-white">Photography</h4>
+                    <p class="text-gray-500 mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg slide-in-left animate">
+                    <i class="fas fa-briefcase text-red-500 text-3xl mb-4"></i>
+                    <h4 class="text-xl font-bold text-white">Freelancing</h4>
+                    <p class="text-gray-500 mt-2">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="Skills" class="mt-24">
+            <h2 class="text-3xl font-bold text-red-500 ">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML & CSS logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">HTML & CSS</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/919/919828.png" alt="JavaScript logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">JavaScript</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/919/919851.png" alt="React logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">React</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/888/888879.png" alt="Operating Systems logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">Operating Systems</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="office.png" alt="Microsoft Office Suite logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">Microsoft Office Suite</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="Data Entry & Typing Speed logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">Data Entry & Typing Speed</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="file.png" alt="File Management logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">File Management</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 60%"></div>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg flip-in animate">
+                    <div class="flex items-center">
+                        <img src="networking.png" alt="Basic Networking logo" class="w-10 h-10 mr-4">
+                        <h4 class="text-xl font-bold text-white">Basic Networking</h4>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
+                        <div class="bg-red-500 h-2.5 rounded-full" style="width: 55%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+    <section id="Projects" class="py-20 scroll-effect">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-red-500 fade in animate">Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 px-6">
+    <div class="bg-[#0f0f1e] p-6 rounded-lg text-center fade-in animate">
+    <img alt="Project 1" class="mb-4 rounded" height="200" src="currency.jpg" width="300"/>
+    <h4 class="text-xl font-bold ">
+        Project 1
+    </h4>
+    <p class="text-gray-400 mt-2">
+    Currency Converter 
+    </p>
+    </div>
+    <div class="bg-[#0f0f1e] p-6 rounded-lg text-center fade-in animate">
+    <img alt="Project 2" class="mb-4 rounded" height="200" src="timer.jpg" width="300"/>
+    <h4 class="text-xl font-bold">
+        Project 2
+    </h4>
+    <p class="text-gray-400 mt-2">
+        Web application count down timer 
+    </p>
+    </div> 
+    <div class="bg-[#0f0f1e] p-6 rounded-lg text-center fade-in animate ">
+        <img alt="Project 3" class="mb-4 rounded" height="200" src="cloud-kitchen1--1-.jpg" width="300"/>
+        <h4 class="text-xl font-bold">
+        Project 3
+        </h4>
+        <p class="text-gray-400 mt-2">
+        Description of project 3.
+        </p  
+    </div>
+</div>
+    </section>
+
+    <section id="Testimonial" class="py-20 scroll-effect">
+        <div class="text-center">
+            <h2 class="text-3xl font-bold text-red-500 fade-in animate">Testimonial</h2>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 px-6">
+        <div class="bg-[#0f0f1e] p-6 rounded-lg text-center zoom-in animate">
+        <h4 class="text-xl font-bold">
+        </h4>
+        <p class="text-gray-400 mt-2">
+        "Great work! Highly recommended."<br>
+        🌟 An exceptional front-end developer! Delivered a sleek, responsive, and user-friendly website that exceeded our expectations.
+        </p>
+        </div>
+        <div class="bg-[#0f0f1e] p-6 rounded-lg text-center zoom-in animate">
+        <h4 class="text-xl font-bold">
+        </h4>
+        <p class="text-gray-400 mt-2">
+        "Very professional and skilled developer."<br>
+        🌟 Highly skilled and detail-oriented. Transformed our vision into a beautiful, high-performance website
+        </p>
+        </div>
+        <div class="bg-[#0f0f1e] p-6 rounded-lg text-center zoom-in animate">
+        <h4 class="text-xl font-bold">
+        </h4>
+        <p class="text-gray-400 mt-2">
+        "Delivered the project on time and exceeded expectations."<br>
+        🌟 Great attention to detail and excellent communication. A top-notch front-end developer.
+        </p>
+        </div>
+        </div>
+    </section>
+    <section class="py-20 ">
+        <h2 class="text-4xl font-bold text-red-500 left fade-in animate">
+        Blog
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 px-6">
+        <div class="bg-[#0f0f1e] p-6 rounded-lg text-center fade-in animate">
+        <h4 class="text-xl font-bold">
+        Front-End Developer
+        </h4>
+        <p class="text-gray-400 mt-2">
+            I started my front-end development journey with HTML, CSS, and JavaScript, later diving into React.js to build interactive web apps. Passionate about UI/UX, I focus on creating fast, responsive, and user-friendly websites. Continuous learning keeps me updated with the latest trends to deliver the best web experiences.
+        </p>
+        <a class="text-red-500 mt-4 inline-block" href="#">
+        Read more
+        </a>
+        </div>
+        <div class="bg-[#0f0f1e] p-6 rounded-lg text-center fade-in animate">
+        <h4 class="text-xl font-bold">
+            UI/UX Matters in Web Development
+        </h4>
+        <p class="text-gray-400 mt-2">
+        A great website isn’t just about code—it’s about user experience. I design responsive, fast, and intuitive websites that make navigation seamless. With clean layouts, smooth interactions, and optimized performance, I create web experiences that engage and convert.
+        </p>
+        <a class="text-red-500 mt-4 inline-block" href="#">
+        Read more
+        </a>
+        </div>
+        <div class="bg-[#0f0f1e] p-6 rounded-lg text-center fade-in animate ">
+        <h4 class="text-xl font-bold">
+            Front-End Development Tools
+        </h4>
+        <p class="text-gray-400 mt-2">
+            I use React.js for dynamic UIs, Tailwind CSS for fast styling, and Git/GitHub for version control. VS Code is my go-to editor, packed with tools that boost productivity. These technologies help me build modern, scalable, and high-performance websites efficiently.
+        </p>
+        <a class="text-red-500 mt-4 inline-block" href="#">
+        Read more
+        </a>
+        </div>
+        </div>
+    </section>
+
+    </section>
+    <section id="contact" class="py-20 text-center">
+        <h2 class="text-3xl font-bold bounce-in fade-in animate ">Contact with me</h2>
+        <form class="mt-8 space-y-4">
+                <input type="email" placeholder="Email" class="w-full p-4 bg-gray-800 text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 slide-in slide-in-left animate">
+                <textarea placeholder="Message" class="w-full p-4 bg-gray-800 text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 slide-in-left animate "></textarea>
+                <button class="bg-red-500 text-white py-2 px-6 rounded-full hover:bg-red-600 fade-in animate">Stay Connected <i class="fas fa-arrow-right"></i></button>
+            </form>
+            <p class="mt-4 text-gray-400">Or email me at: <a href="mailto:thinglomabo@gmail.com" class="text-red-500">thinglomabo@gmail.com</a></p>
+        </section>
+    </section>
+            <div class="mt-8 flex justify-center space-x-4">
+                <a href="https://instagram.com/abooathin"class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="https://twitter.com/your_twitter_handle" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-2xl"></i></a>
+                <a href="https://twitter.com/your_twitter_handle"class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="https://github.com/micro996" class="text-gray-400 hover:text-white"><i class="fab fa-github text-2xl"></i></a>
+                <a href="https://facebook.com/athin abo"class="text-gray-400 hover:text-white"><i class="fab fa-facebook text-2xl"></i></a>
+            </div>
+            <div class="mt-8 text-gray-400 text-center">
+                <p><i class="fas fa-phone-alt"></i> +9863064454</p>
+                <p><i class="fas fa-phone-alt"></i> +6909524555</p>
+            </div>
+            
+        </section>
+        </main> <!-- Closing main content -->
+</div> <!-- Closing container or wrapper div -->
+
+<!-- Footer Section -->
+</footer>
+
+<!-- JavaScript for Smooth Scrolling and Resume Button -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Resume Button Toggle (Ensure Element Exists)
+        const resumeButton = document.getElementById('resumeButton');
+        if (resumeButton) {
+            resumeButton.addEventListener('click', function() {
+                const resume = document.getElementById('resume');
+                if (resume) {
+                    resume.classList.toggle('hidden');
+                    resume.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        // Scroll Animations with Intersection Observer
+        const elements = document.querySelectorAll(".animate, .fade-in, .slide-in-left, .slide-in-right, .zoom-in, .bounce-in");
+
+        if (elements.length === 0) {
+            console.warn("⚠ No elements found for animation.");
+            return;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add("show");
+                    }, index * 150); // Staggered effect
+                } else {
+                    entry.target.classList.remove("show");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        elements.forEach(el => observer.observe(el));
+
+        // About Section Animation
+        const aboutSection = document.getElementById("about");
+        if (aboutSection) {
+            const aboutText = aboutSection.querySelector("p");
+            function handleScroll() {
+                const aboutPosition = aboutSection.getBoundingClientRect().top;
+                const screenHeight = window.innerHeight;
+                if (aboutPosition < screenHeight * 0.8) {
+                    aboutSection.classList.add("show");
+                    if (aboutText) aboutText.classList.add("show");
+                }
+            }
+            window.addEventListener("scroll", handleScroll);
+            handleScroll(); // Run once on page load
+        }
+    });
+</script>
