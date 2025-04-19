@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-    
-    
 body {
     font-family: 'Roboto', sans-serif;
     scroll-behavior: smooth;
 }
 
-/* Common Animation Properties */
+/* ============================
+   ✨ Common Animation Styles 
+   ============================ */
 .animate {
     opacity: 0;
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -22,16 +22,12 @@ body {
 .animate.show {
     opacity: 1;
 }
-
-/* Fade-in Effect */
 .fade-in {
     transform: translateY(20px);
 }
 .fade-in.show {
     transform: translateY(0);
 }
-
-/* Slide-in Effects */
 .slide-in-left {
     transform: translateX(-100px);
 }
@@ -44,54 +40,52 @@ body {
 .slide-in-right.show {
     transform: translateX(0);
 }
-
-/* Zoom-in Effect */
 .zoom-in {
     transform: scale(0.8);
 }
 .zoom-in.show {
     transform: scale(1);
 }
-
-/* Rotate-in Effect */
 .rotate-in {
     transform: rotate(-10deg);
 }
 .rotate-in.show {
     transform: rotate(0deg);
 }
-
-/* Flip-in Effect */
 .flip-in {
     transform: rotateY(90deg);
 }
 .flip-in.show {
     transform: rotateY(0deg);
 }
-
-/* Bounce-in Effect */
 .bounce-in {
     transform: translateY(30px);
 }
 .bounce-in.show {
     animation: bounce 0.6s ease-out;
 }
-
 @keyframes bounce {
     0% { transform: translateY(30px); }
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
 
-/* Sections Styling */
+/* ============================
+   🧱 Section & Content Styling
+   ============================ */
 section {
     padding: 50px;
     text-align: left;
-    max-width: 1200px; /* Center content with better width */
+    max-width: 1200px;
     margin: 0 auto;
 }
+section h2 {
+    text-align: left;
+}
 
-/* Skills Bar */
+/* ============================
+   🛠️ Skills Bar
+   ============================ */
 .skills-container {
     display: flex;
     justify-content: center;
@@ -120,7 +114,9 @@ section {
 .skill-js { width: 80%; }
 .skill-react { width: 70%; }
 
-/* Blog & Testimonials */
+/* ============================
+   📝 Cards (Blog/Testimonials)
+   ============================ */
 .card {
     background: white;
     padding: 20px;
@@ -139,14 +135,12 @@ section {
     flex-wrap: wrap;
 }
 
-/* Footer Styling */
-footer {
-    margin-top: 50px;
-    text-align:center;
-}
+/* ============================
+   ⚪ Dot Indicators (Footer)
+   ============================ */
 .dot-container {
     display: flex;
-    justify-content: center ;
+    justify-content: center;
     gap: 10px;
     margin-top: 10px;
 }
@@ -162,17 +156,79 @@ footer {
     border: 2px solid red;
 }
 
-/* Sections Styling */
-section h2 {
-    text-align: left;
+/* ============================
+   🦶 Footer
+   ============================ */
+footer {
+    margin-top: 50px;
+    text-align: center;
 }
 
-/* Align Cards/Grids to the Left */
-.cards-container, .grid {
-    justify-content: flex-start;
+/* ============================
+   📱 Responsive Media Queries
+   ============================ */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 30px 20px;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-bar {
+        width: 100%;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 90%;
+    }
+
+    section h2 {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .dot-container {
+        flex-wrap: wrap;
+    }
 }
 
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
 
+    section {
+        padding: 20px 15px;
+    }
+
+    .skill-bar span {
+        font-size: 12px;
+    }
+
+    .dot {
+        width: 12px;
+        height: 12px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
+
+    
 </style>
 
     <script>
@@ -483,7 +539,11 @@ My knowledge includes HTML, CSS, and JavaScript, which a content, styling, and i
         <form class="mt-8 space-y-4">
                 <input type="email" placeholder="Email" class="w-full p-4 bg-gray-800 text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 slide-in slide-in-left animate">
                 <textarea placeholder="Message" class="w-full p-4 bg-gray-800 text-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 slide-in-left animate "></textarea>
-                <button class="bg-red-500 text-white py-2 px-6 rounded-full hover:bg-red-600 fade-in animate">Stay Connected <i class="fas fa-arrow-right"></i></button>
+                <button class="bg-red-500 text-white py-2 px-6 rounded-full hover:bg-red-600 fade-in animate" 
+                onclick="window.location.href='mailto:thinglomabo@gmail.com';">
+                Stay Connected <i class="fas fa-arrow-right"></i>
+            </button>
+            
             </form>
             <p class="mt-4 text-gray-400">Or email me at: <a href="mailto:thinglomabo@gmail.com" class="text-red-500">thinglomabo@gmail.com</a></p>
         </section>
@@ -491,13 +551,13 @@ My knowledge includes HTML, CSS, and JavaScript, which a content, styling, and i
             <div class="mt-8 flex justify-center space-x-4">
                 <a href="https://instagram.com/abooathin"class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-2xl"></i></a>
                 <a href="https://twitter.com/your_twitter_handle" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-2xl"></i></a>
-                <a href="https://twitter.com/your_twitter_handle"class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
+                <a href="https://linkedin.com/your_twitter_handle"class="text-gray-400 hover:text-white"><i class="fab fa-linkedin text-2xl"></i></a>
                 <a href="https://github.com/micro996" class="text-gray-400 hover:text-white"><i class="fab fa-github text-2xl"></i></a>
                 <a href="https://facebook.com/athin abo"class="text-gray-400 hover:text-white"><i class="fab fa-facebook text-2xl"></i></a>
             </div>
             <div class="mt-8 text-gray-400 text-center">
-                <p><i class="fas fa-phone-alt"></i> +9863064454</p>
-                <p><i class="fas fa-phone-alt"></i> +6909524555</p>
+                <p><i class="fas fa-phone-alt"></i> +9863084465</p>
+                <p><i class="fas fa-phone-alt"></i> +6909516588</p>
             </div>
             
         </section>
@@ -570,4 +630,12 @@ My knowledge includes HTML, CSS, and JavaScript, which a content, styling, and i
             handleScroll(); // Run once on page load
         }
     });
+        // JavaScript to handle the button click
+        document.getElementById('stayConnectedBtn').addEventListener('click', function() {
+            // Redirect to the email link
+            window.location.href = 'mailto:thinglomabo@gmail.com';
+        });
+    </script>
 </script>
+</body>
+</html>
